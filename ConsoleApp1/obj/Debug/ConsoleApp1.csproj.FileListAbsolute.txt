@@ -1,0 +1,7 @@
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\HYP\Source\Repos\Primer-Exercici-en-parelles\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
