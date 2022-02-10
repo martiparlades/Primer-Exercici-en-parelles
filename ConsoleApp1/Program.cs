@@ -12,7 +12,7 @@ namespace ConsoleApp1
         public const int Col = 3;
         private static string[,] resultats = new string[Row, Col] {
             { "Empat","Perds","Guanyes"},
-            {"Guanyes","Empat","Perds"},
+            { "Guanyes","Empat","Perds"},
             { "Perds","Guanyes","Empat"},
             { "Perds","Guanyes","Empat"}
         };
@@ -20,13 +20,32 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int a;
             Random rnd = new Random();
-            int b = rnd.Next(1, 3);
-            a = OptionUser();
-            CheckWinWin(a, b);
-            continuarJugant();
+            bool jugar = true;
+            int nRondes = 0, nGuanyades = 0;
+
+            Console.WriteLine("Benvingut a Pedra/Paper/Tisores");   // Mostrem missatge de benvinguda al joc
+            Console.WriteLine("Prem qualsevol tecla per començar a jugar");
             Console.ReadKey();
+
+            while (jugar == true) // mentre jugar == true
+            {
+                int a;
+                a = OptionUser(); // cridem al metode opcioUsuari per obtenir la seva opció
+                int b = rnd.Next(1, 4); // cridem al mètode Random.Next per obtenir l'opció de l'ordinador a l'atzar
+                CheckWinWin(a, b); // cridem al mètode comprovarQuiGuanya per veure qui guanya
+                nRondes++; // augmentem nRondes
+                
+                if(resultats[a,b] == "Guanyes") // augmentem nGuanyades
+                {
+                    nGuanyades++;
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("RONDES JUGADES : {0} ", nRondes); // mostrem el nombre de rondes jugades
+                Console.WriteLine("RONDES GUANYADES : {0} ", nGuanyades); // mostrem el nombre de rondes guanyades
+                continuarJugant(); // tornar a l'inici del bucle
+            }
         }
 
 
@@ -50,18 +69,19 @@ namespace ConsoleApp1
 
         private static void CheckWinWin(int a, int b)
         {
-            string A;
-            string B;
+            string A = null;
+            string B = null;
             string C;
+
             if (a == 1)
             {
                 A = "PEDRA";
             }
-            else if (a == 2)
+            if (a == 2)
             {
                 A = "PAPER";
             }
-            else
+            if (a == 3)
             {
                 A = "TISORA";
             }
@@ -69,11 +89,11 @@ namespace ConsoleApp1
             {
                 B = "PEDRA";
             }
-            else if (b == 2)
+            if (b == 2)
             {
                 B = "PAPER";
             }
-            else
+            if (b == 3)
             {
                 B = "TISORA";
             }
@@ -82,31 +102,31 @@ namespace ConsoleApp1
 
             if (a == b)
             {
-                C = resultats[1, 1];
+                C = resultats[0, 0];
             }
             else if (a == 1 && b == 2)
             {
-                C = resultats[1, 2];
+                C = resultats[0, 1];
             }
             else if (a == 1 && b == 3)
             {
-                C = resultats[1, 3];
+                C = resultats[0, 2];
             }
             else if (a == 2 && b == 1)
             {
-                C = resultats[2, 1];
+                C = resultats[1, 0];
             }
             else if (a == 2 && b == 3)
             {
-                C = resultats[2, 3];
+                C = resultats[2, 1];
             }
             else if (a == 3 && b == 1)
             {
-                C = resultats[3, 1];
+                C = resultats[2, 0];
             }
             else if (a == 3 && b == 2)
             {
-                C = resultats[3, 2];
+                C = resultats[2, 1];
             }
             else
             {
@@ -116,8 +136,25 @@ namespace ConsoleApp1
             Console.WriteLine("        " + C);
         }
 
-        private static void continuarJugant()
+        private static bool continuarJugant()
         {
+            Console.WriteLine("Vols continuar jugant? (SI/NO)");
+            string answer = Console.ReadLine();
+
+            if (answer.ToUpper() == "SI")
+            {
+                return true;
+            }
+            else if (answer.ToUpper() == "NO")
+            {
+                return false;
+            }
+            else
+            {
+                continuarJugant();
+                return false;
+            }
+
 
         }
 
