@@ -26,7 +26,6 @@ namespace ConsoleApp1
             Console.WriteLine("Benvingut a Pedra/Paper/Tisores");   // Mostrem missatge de benvinguda al joc
             Console.WriteLine("Prem qualsevol tecla per començar a jugar");
             Console.ReadKey();
-            Console.WriteLine(resultats[0,1]);
 
             while (jugar == true) // mentre jugar == true
             {
@@ -37,7 +36,7 @@ namespace ConsoleApp1
                 int b = rnd.Next(1, 4); // cridem al mètode Random.Next per obtenir l'opció de l'ordinador a l'atzar
                 CheckWinWin(a, b); // cridem al mètode comprovarQuiGuanya per veure qui guanya
                 nRondes++; // augmentem nRondes
-                Console.WriteLine(b);
+
                 if(resultats[a-1,b-1] == "Guanyes") // augmentem nGuanyades
                 {
                     nGuanyades++;
