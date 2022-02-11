@@ -16,7 +16,7 @@ namespace ConsoleApp1
             { "Perds","Guanyes","Empat"}
         };
 
-
+        //change
         static void Main(string[] args)
         {
             
