@@ -19,7 +19,7 @@ namespace ConsoleApp1
         //change
         static void Main(string[] args)
         {
-            
+
             bool jugar = true;
             int nRondes = 0, nGuanyades = 0;
 
@@ -45,8 +45,11 @@ namespace ConsoleApp1
                 Console.WriteLine();
                 Console.WriteLine("RONDES JUGADES : {0} ", nRondes); // mostrem el nombre de rondes jugades
                 Console.WriteLine("RONDES GUANYADES : {0} ", nGuanyades); // mostrem el nombre de rondes guanyades
-                continuarJugant(); // tornar a l'inici del bucle
+                jugar=continuarJugant(); // tornar a l'inici del bucle
             }
+
+
+
         }
 
 
