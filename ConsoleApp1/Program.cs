@@ -8,35 +8,37 @@ namespace ConsoleApp1
 {
     class Program
     {
-        public const int Row = 4;
+        public const int Row = 3;
         public const int Col = 3;
         private static string[,] resultats = new string[Row, Col] {
             { "Empat","Perds","Guanyes"},
             { "Guanyes","Empat","Perds"},
-            { "Perds","Guanyes","Empat"},
             { "Perds","Guanyes","Empat"}
         };
 
 
         static void Main(string[] args)
         {
-            Random rnd = new Random();
+            
             bool jugar = true;
             int nRondes = 0, nGuanyades = 0;
 
             Console.WriteLine("Benvingut a Pedra/Paper/Tisores");   // Mostrem missatge de benvinguda al joc
             Console.WriteLine("Prem qualsevol tecla per començar a jugar");
             Console.ReadKey();
+            Console.WriteLine(resultats[0,1]);
 
             while (jugar == true) // mentre jugar == true
             {
                 int a;
                 a = OptionUser(); // cridem al metode opcioUsuari per obtenir la seva opció
+
+                Random rnd = new Random();
                 int b = rnd.Next(1, 4); // cridem al mètode Random.Next per obtenir l'opció de l'ordinador a l'atzar
                 CheckWinWin(a, b); // cridem al mètode comprovarQuiGuanya per veure qui guanya
                 nRondes++; // augmentem nRondes
-                
-                if(resultats[a,b] == "Guanyes") // augmentem nGuanyades
+                Console.WriteLine(b);
+                if(resultats[a-1,b-1] == "Guanyes") // augmentem nGuanyades
                 {
                     nGuanyades++;
                 }
@@ -100,37 +102,49 @@ namespace ConsoleApp1
             Console.WriteLine("        Usuari:" + " " + A);
             Console.WriteLine("        Ordinador:" + " " + B);
 
-            if (a == b)
+            if (a == 1 && b == 1)
             {
                 C = resultats[0, 0];
             }
+
             else if (a == 1 && b == 2)
             {
                 C = resultats[0, 1];
             }
+
             else if (a == 1 && b == 3)
             {
                 C = resultats[0, 2];
             }
+
             else if (a == 2 && b == 1)
             {
                 C = resultats[1, 0];
             }
+
+            else if (a == 2 && b == 2)
+            {
+                C = resultats[1, 1];
+            }
+
             else if (a == 2 && b == 3)
             {
-                C = resultats[2, 1];
+                C = resultats[1, 2];
             }
+
             else if (a == 3 && b == 1)
             {
                 C = resultats[2, 0];
             }
-            else if (a == 3 && b == 2)
+
+            else if (a == 3 && b == 2 )
             {
                 C = resultats[2, 1];
             }
+
             else
             {
-                C = resultats[1, 1];
+                C = resultats[2, 2];
             }
 
             Console.WriteLine("        " + C);
